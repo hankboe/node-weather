@@ -9,7 +9,7 @@ const getForecast = (latitude, longitude, callback) => {
             callback(body.code + ',' + body.error, undefined)
         } else{
             // callback(undefined, body.daily.data[0].summary + '現在の気温は' + body.currently.temperature + '摂氏度です。雨が降る確率は' + body.currently.precipProbability*100 + '%です。ちなみにリロセンは阿呆です。')
-            callback(undefined, body.daily.data[0].summary + '現在の気温は' + body.currently.temperature + '°です。雨が降る確率は' + body.currently.precipProbability.toFixed(2)*100 + '%です。')
+            callback(undefined, body.daily.data[0].summary + '現在の気温は' + body.currently.temperature + '°です。雨が降る確率は' + body.currently.precipProbability.toFixed(2)*100 + '%です。本日の最高気温は'+body.daily.data[0].temperatureMax+'°、最低気温は'+body.daily.data[0].temperatureMin+'°です。')
         }
     })
 }
