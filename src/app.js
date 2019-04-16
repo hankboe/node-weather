@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
-const getForecast = require('./utils/getForecast')
+const forecast = require('./utils/forecast')
 
 const app = express()
 const port = process.env.PORT || 3000 // set the port for Heroku by using env value
@@ -53,7 +53,7 @@ app.get('/weather', (req, res) => {
                 return res.send({error})
             }
             else {
-                    getForecast(latitude, longitude, (error, forecastData) => {
+                    forecast(latitude, longitude, (error, forecastData) => {
                         if (error){
                             return res.send({error: error})
                         }
